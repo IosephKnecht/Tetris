@@ -7,3 +7,12 @@ c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoCla
 c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\bin\Debug\TwoClassTetris.pdb
 c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.exe
 c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\bin\Debug\TwoClassTetris.exe.config
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\obj\Debug\TwoClassTetris.exe
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\bin\Debug\TwoClassTetris.exe
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\bin\Debug\TwoClassTetris.pdb
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\obj\Debug\TwoClassTetris.csprojResolveAssemblyReference.cache
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\obj\Debug\TwoClassTetris.Form1.resources
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\obj\Debug\TwoClassTetris.Properties.Resources.resources
+C:\Users\dadya_fedar\Documents\Visual Studio 2012\Projects\TetrisGit\TwoClassTetris\obj\Debug\TwoClassTetris.csproj.GenerateResource.Cache

@@ -46,7 +46,19 @@ namespace TwoClassTetris
                     g.FillRectangle(newBrush, j * side_of_square, i * side_of_square, side_of_square, side_of_square);
                 }
             }
-            return BtmPole;
+
+            for (int i = 1; i <= countLine; i++)
+            {
+                g.DrawLine(Pens.Black, new Point(1, side_of_square * i), new Point(Convert.ToInt32(width), side_of_square * i));//горизонталь
+            }
+
+            for (int j = 1; j <= countColumn; j++) 
+            {
+                g.DrawLine(Pens.Black, new Point(side_of_square*j, Convert.ToInt32(height)), new Point(side_of_square*j, 1));//вертикаль
+            }
+                return BtmPole;
         }
+
+
     }
 }
