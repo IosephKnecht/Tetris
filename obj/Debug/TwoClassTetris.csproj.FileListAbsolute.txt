@@ -1,0 +1,9 @@
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\bin\Debug\TwoClassTetris.exe.config
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.csprojResolveAssemblyReference.cache
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.Form1.resources
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.Properties.Resources.resources
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.csproj.GenerateResource.Cache
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\bin\Debug\TwoClassTetris.exe
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\bin\Debug\TwoClassTetris.pdb
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.exe
+c:\users\dadya_fedar\documents\visual studio 2012\Projects\TwoClassTetris\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
