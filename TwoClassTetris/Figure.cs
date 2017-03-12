@@ -95,7 +95,14 @@ namespace TwoClassTetris
                 {
                     if (Cube[i, j])
                     {
-                        g.FillRectangle(Brushes.BlueViolet, i * size, j * size, size, size);
+                        g.FillRectangle(Brushes.AliceBlue, i * size, j * size, size, size);
+                        int x1 = i * size-1;
+                        int y1 = j * size-1;
+                        //Переделать в процедуру...
+                        g.DrawLine(Pens.Black, x1, y1, x1, y1+size);
+                        g.DrawLine(Pens.Black, x1+size, y1, x1+size, y1 + size);
+                        g.DrawLine(Pens.Black, x1, y1, x1 + size, y1);
+                        g.DrawLine(Pens.Black, x1, y1+size, x1 + size, y1+size);
                     }
                 }
             }
@@ -115,7 +122,6 @@ namespace TwoClassTetris
                 }
             }
             Cube = p2;
-            Console.ReadLine();
         }
         /// <summary>
         /// Процедура обратного транспонирования расчетной матрицы...

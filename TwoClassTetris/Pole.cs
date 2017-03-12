@@ -22,13 +22,13 @@ namespace TwoClassTetris
             Brushes.Azure, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
         public Bitmap PaintPole() 
         {
-            //side_of_square = 50;
-            //width = 1000;
-            //height = 400;
-            //countLine = Convert.ToInt32(height / 50);
-            //countColumn = Convert.ToInt32(width / 50);
-            //Area = new int[countLine, countColumn];//все наоборот...
-            
+            side_of_square = 50;
+            width = 1000;
+            height = 400;
+            countLine = Convert.ToInt32(height / 50);
+            countColumn = Convert.ToInt32(width / 50);
+            Area = new int[countLine, countColumn];//все наоборот...
+
             Graphics g = Graphics.FromImage(BtmPole);
             Brush newBrush;
             for (int i = 0; i < Area.GetLength(0); i++)
@@ -57,6 +57,28 @@ namespace TwoClassTetris
                 g.DrawLine(Pens.Black, new Point(side_of_square*j, Convert.ToInt32(height)), new Point(side_of_square*j, 1));//вертикаль
             }
                 return BtmPole;
+        }
+
+        public bool PositionOK(Figure figure,float X,float Y)
+        {
+            for (int i = 0; i < figure._Cube.GetLength(0); i++)
+            {
+                for(int j=0;j < figure._Cube.GetLength(1); j++)
+                {
+                    if (figure._Cube[i, j])
+                    {
+                        try
+                        {
+                            if (Area[(int)(Y / side_of_square) + j, (int)(X / side_of_square) + i] != 0) return false;
+                        }
+                        catch
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
 
