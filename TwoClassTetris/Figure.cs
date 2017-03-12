@@ -7,13 +7,16 @@ using System.Drawing;
 
 namespace TwoClassTetris
 {
-    class Figure
+    public class Figure
     {
         //Координаты расположения фигуры на поле...
         int X = 0;
         int Y = 0;
         int StopLine = 0;
-        bool[,] Cube = new bool[4, 4]; //Расчетная матрица...
+        int[,] Cube = new int[4, 4]; //Расчетная матрица...
+        Brush[] ColorsPole = new Brush[] { Brushes.Aqua, Brushes.Orange, Brushes.Blue, Brushes.Red, Brushes.Green,
+            Brushes.Azure, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
+
         public int _StopLine 
         {
             get { return StopLine; }
@@ -29,7 +32,7 @@ namespace TwoClassTetris
             get { return Y; }
             set { Y = value; }
         }
-        public bool[,] _Cube 
+        public int[,] _Cube 
         {
             set { Cube = value; }
             get { return Cube; }
@@ -40,43 +43,44 @@ namespace TwoClassTetris
         public void EnterCubeMatrix()
         {
             Random ran = new Random();
-            switch (ran.Next(4, 4) + 1)
+            int color = ran.Next(0, 9)+1;
+            switch (ran.Next(1, 6) + 1)
             {
                 case 1://Левая молния...
-                    Cube[1, 2] = true;
-                    Cube[1, 3] = true;
-                    Cube[2, 1] = true;
-                    Cube[2, 2] = true;
+                    Cube[1, 2] = color;
+                    Cube[1, 3] = color;
+                    Cube[2, 1] = color;
+                    Cube[2, 2] = color;
                     break;
                 case 2://Правая молния...
-                    Cube[1, 0] = true;
-                    Cube[1, 1] = true;
-                    Cube[2, 1] = true;
-                    Cube[2, 2] = true;
+                    Cube[1, 0] = color;
+                    Cube[1, 1] = color;
+                    Cube[2, 1] = color;
+                    Cube[2, 2] = color;
                     break;
                 case 3://Правая Г...
-                    Cube[1, 1] = true;
-                    Cube[1, 2] = true;
-                    Cube[1, 3] = true;
-                    Cube[2, 1] = true;
+                    Cube[1, 1] = color;
+                    Cube[1, 2] = color;
+                    Cube[1, 3] = color;
+                    Cube[2, 1] = color;
                     break;
                 case 4://Левая Г...
-                    Cube[1, 1] = true;
-                    Cube[1, 2] = true;
-                    Cube[1, 3] = true;
-                    Cube[2, 3] = true;
+                    Cube[1, 1] = color;
+                    Cube[1, 2] = color;
+                    Cube[1, 3] = color;
+                    Cube[2, 3] = color;
                     break;
                 case 5://Треугольник...
-                    Cube[1, 1] = true;
-                    Cube[1, 2] = true;
-                    Cube[1, 3] = true;
-                    Cube[2, 2] = true;
+                    Cube[1, 1] = color;
+                    Cube[1, 2] = color;
+                    Cube[1, 3] = color;
+                    Cube[2, 2] = color;
                     break;
                 case 6://Палка...
-                    Cube[1, 0] = true;
-                    Cube[1, 1] = true;
-                    Cube[1, 2] = true;
-                    Cube[1, 3] = true;
+                    Cube[1, 0] = color;
+                    Cube[1, 1] = color;
+                    Cube[1, 2] = color;
+                    Cube[1, 3] = color;
                     break;
             }
         }
@@ -93,9 +97,9 @@ namespace TwoClassTetris
             {
                 for (int j = 0; j < Cube.GetLength(1); j++) 
                 {
-                    if (Cube[i, j])
+                    if (Cube[i, j]!=0)
                     {
-                        g.FillRectangle(Brushes.AliceBlue, i * size, j * size, size, size);
+                        g.FillRectangle(ColorsPole[Cube[i,j]-1], i * size, j * size, size, size);
                         int x1 = i * size-1;
                         int y1 = j * size-1;
                         //Переделать в процедуру...
@@ -113,7 +117,7 @@ namespace TwoClassTetris
         /// </summary>
         public void Transform() 
         {
-            bool[,] p2 = new bool[4, 4];
+            int[,] p2 = new int[4, 4];
             for (int i = 0; i < Cube.GetLength(0); i++)
             {
                 for (int j = 0; j < Cube.GetLength(1); j++)
@@ -128,7 +132,7 @@ namespace TwoClassTetris
         /// </summary>
         public void uTransform() 
         {
-            bool[,] p2 = new bool[4, 4];
+            int[,] p2 = new int[4, 4];
             for (int i = 0; i < Cube.GetLength(0); i++)
             {
                 for (int j = 0; j < Cube.GetLength(1); j++)

@@ -22,7 +22,7 @@ namespace TwoClassTetris
             figure.EnterCubeMatrix();
         }
         Figure figure=new Figure();
-        Pole pole=new Pole();
+        public Pole pole { get; set; }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Bitmap BtmPole = pole.PaintPole();
@@ -31,11 +31,23 @@ namespace TwoClassTetris
             e.Graphics.DrawImage(DrawFigure, figure._X, figure._Y);
         }
 
+        private void NewFigure()
+        {
+            figure = new Figure();
+            figure.EnterCubeMatrix();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (pole.PositionOK(figure, figure._X, figure._Y + 50))
             {
                 figure._Y += 50;
+                this.Refresh();
+            }
+            else
+            {
+                pole.CheckArea(figure, figure._X, figure._Y);
+                NewFigure();
                 this.Refresh();
             }
         }
