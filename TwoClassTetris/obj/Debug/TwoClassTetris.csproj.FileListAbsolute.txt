@@ -34,4 +34,3 @@ C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.Properties.Reso
 C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.csproj.GenerateResource.Cache
 C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.exe
 C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
-C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.Form2.resources

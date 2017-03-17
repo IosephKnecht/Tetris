@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace TwoClassTetris
 {
@@ -20,15 +21,37 @@ namespace TwoClassTetris
         private void Form1_Load(object sender, EventArgs e)
         {
             figure.EnterCubeMatrix();
+            pole = new Pole();
+            pole.Width = 450;
+            pole.Height = 700;
+            pole.Side_of_square = 50;
+            RePaint();
         }
+
         Figure figure=new Figure();
         public Pole pole { get; set; }
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        BufferedGraphicsContext currentContext;
+        BufferedGraphics myBuffer;
+
+        private void RePaint()
         {
+            currentContext = BufferedGraphicsManager.Current;
+            myBuffer = currentContext.Allocate(this.CreateGraphics(),
+               new Rectangle(new Point(0,0),new Size(450,700)));
             Bitmap BtmPole = pole.PaintPole();
             Bitmap DrawFigure = figure.DrawingCubeMatrix(50);
-            e.Graphics.DrawImage(BtmPole,0,0);
-            e.Graphics.DrawImage(DrawFigure, figure._X, figure._Y);
+            myBuffer.Graphics.DrawImage(BtmPole, 0, 0);
+            myBuffer.Graphics.DrawImage(DrawFigure, figure._X, figure._Y);
+            myBuffer.Render();
+            myBuffer.Dispose();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            //Bitmap BtmPole = pole.PaintPole();
+            //Bitmap DrawFigure = figure.DrawingCubeMatrix(50);
+            //e.Graphics.DrawImage(BtmPole,0,0);
+            //e.Graphics.DrawImage(DrawFigure, figure._X, figure._Y);
         }
 
         private void NewFigure()
@@ -42,13 +65,13 @@ namespace TwoClassTetris
             if (pole.PositionOK(figure, figure._X, figure._Y + 50))
             {
                 figure._Y += 50;
-                this.Refresh();
+                RePaint();
             }
             else
             {
                 pole.CheckArea(figure, figure._X, figure._Y);
                 NewFigure();
-                this.Refresh();
+                RePaint();
             }
         }
 
@@ -62,7 +85,7 @@ namespace TwoClassTetris
                     if(pole.PositionOK(figure,figure._X-50,figure._Y))
                     {
                         figure._X -= 50;
-                        this.Refresh();
+                        RePaint();
                     }
                     break;
                 //Right
@@ -70,20 +93,20 @@ namespace TwoClassTetris
                     if (pole.PositionOK(figure, figure._X + 50, figure._Y))
                     {
                         figure._X += 50;
-                        this.Refresh();
+                        RePaint();
                     }
                     break;
                 case 40:
                     if (pole.PositionOK(figure, figure._X, figure._Y+50))
                     {
                         figure._Y += 50;
-                        this.Refresh();
+                        RePaint();
                     }
                     break;
                 case 38:
                     figure.Transform();
                     if (!pole.PositionOK(figure, figure._X, figure._Y)) figure.uTransform();
-                    this.Refresh();
+                    RePaint();
                     break;
             }
         }

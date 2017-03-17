@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Threading;
 
 namespace TwoClassTetris
 {
@@ -44,6 +45,7 @@ namespace TwoClassTetris
         {
             Random ran = new Random();
             int color = ran.Next(0, 9)+1;
+            Thread.Sleep(10);
             switch (ran.Next(1, 6) + 1)
             {
                 case 1://Левая молния...
