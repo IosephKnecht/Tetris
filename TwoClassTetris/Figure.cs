@@ -11,7 +11,7 @@ namespace TwoClassTetris
     public class Figure
     {
         //Координаты расположения фигуры на поле...
-        int X = 0;
+        int X = 100;
         int Y = 0;
         int StopLine = 0;
         int[,] Cube = new int[4, 4]; //Расчетная матрица...
@@ -43,6 +43,7 @@ namespace TwoClassTetris
         /// </summary>
         public void EnterCubeMatrix()
         {
+            Cube = new int[4, 4];
             Random ran = new Random();
             int color = ran.Next(0, 9)+1;
             Thread.Sleep(10);

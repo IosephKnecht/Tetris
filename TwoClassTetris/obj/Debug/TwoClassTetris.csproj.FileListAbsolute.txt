@@ -34,3 +34,13 @@ C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.Properties.Reso
 C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.csproj.GenerateResource.Cache
 C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.exe
 C:\Users\dadya_fedar\Git\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
+D:\Tetris\TwoClassTetris\bin\Debug\TwoClassTetris.exe.config
+D:\Tetris\TwoClassTetris\bin\Debug\TwoClassTetris.exe
+D:\Tetris\TwoClassTetris\bin\Debug\TwoClassTetris.pdb
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.csprojResolveAssemblyReference.cache
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.Properties.Resources.resources
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.csproj.GenerateResource.Cache
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.exe
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.DialogForm.resources
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.MainForm.resources

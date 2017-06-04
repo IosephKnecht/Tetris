@@ -21,6 +21,8 @@ namespace TwoClassTetris
         Brush[] ColorsPole = new Brush[] { Brushes.Aqua, Brushes.Orange, Brushes.Blue, Brushes.Red, Brushes.Green,
             Brushes.Azure, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
 
+        public event Action PlusLine;
+
         public float Width
         {
             get { return width; }
@@ -40,8 +42,8 @@ namespace TwoClassTetris
             {
                 if (width > 0 && height > 0)
                 {
-                    countLine = Convert.ToInt32(height / 50);
-                    countColumn = Convert.ToInt32(width / 50);
+                    countLine = Convert.ToInt32(height /value);
+                    countColumn = Convert.ToInt32(width /value);
                     Area = new int[countLine, countColumn];
                     BtmPole = new Bitmap((int)width, (int)height);
                 }
@@ -159,6 +161,7 @@ namespace TwoClassTetris
                     Area[i, j] = cash[i - 1, j];
                 }
             }
+            PlusLine();
         }
 
         private void SearchLine()
