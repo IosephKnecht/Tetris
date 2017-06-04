@@ -16,7 +16,9 @@ namespace TwoClassTetris
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            SettingsForm set = new SettingsForm();
+            MainForm main = new MainForm(set);
+            Application.Run(set);
         }
     }
 }

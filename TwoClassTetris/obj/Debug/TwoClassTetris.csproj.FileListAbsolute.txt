@@ -44,3 +44,4 @@ D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.exe
 D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.pdb
 D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.DialogForm.resources
 D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.MainForm.resources
+D:\Tetris\TwoClassTetris\obj\Debug\TwoClassTetris.SettingsForm.resources

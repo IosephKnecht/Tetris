@@ -17,6 +17,8 @@ namespace TwoClassTetris
             InitializeComponent();
         }
 
+        //Событие подписываемое на MainForm...
+        //Связь начинается на UML диаграмме с этого момента...
         public event Action<object> RestartGame;
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,7 +33,7 @@ namespace TwoClassTetris
 
         private void DialogForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }

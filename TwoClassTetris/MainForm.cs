@@ -14,13 +14,43 @@ namespace TwoClassTetris
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        /// <summary>
+        /// Экземпляр класса SettingForm...
+        /// Для подписки на событие ReturnSettings...
+        /// </summary>
+        SettingsForm set;
+
+        public MainForm(SettingsForm set)
         {
             InitializeComponent();
+            this.set = set;
+            set.ReturnSettings += Set_ReturnSettings;
+        }
+
+        /// <summary>
+        /// Событие реализуещее создание поля по задынным пользователем хар-кам...
+        /// Связь на UML диаграмме...
+        /// </summary>
+        /// <param name="line">Количество линий...</param>
+        /// <param name="stlb">Количество столбцов...</param>
+        /// <param name="size">Размер сторны кубика в пикселях...</param>
+        private void Set_ReturnSettings(int line, int stlb, int size)
+        {
+            pole = new Pole();
+            pole.Width = line*size;
+            pole.Height = stlb*size;
+            pole.Side_of_square = size;
+            timer1.Enabled = true;
+            this.Show();
+            set.Hide();
         }
 
         int Record = 0;
 
+        /// <summary>
+        /// Метод(событие) реализуещий подсчет "уничтоженных" линий и присвоение рекорда за сессию...
+        /// Связь на UML диаграмме...
+        /// </summary>
         private void Pole_PlusLine()
         {
             int line = Convert.ToInt32(lineLabel.Text);
@@ -34,15 +64,13 @@ namespace TwoClassTetris
             }
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
             figure.EnterCubeMatrix();
-            pole = new Pole();
+            //pole = new Pole();
             pole.PlusLine += Pole_PlusLine;
-            pole.Width = 450;
-            pole.Height = 700;
-            pole.Side_of_square = 25;
-            statBox.Location = new Point(Convert.ToInt32(pole.Width + pole.Side_of_square) , Convert.ToInt32(pole.Height / 2));
+            statBox.Location = new Point(Convert.ToInt32(pole.Width + pole.Side_of_square), Convert.ToInt32(pole.Height / 2));
             statBox.Visible = true;
             recordLabel.Text = Record.ToString();
             RePaint();
@@ -53,11 +81,15 @@ namespace TwoClassTetris
         BufferedGraphicsContext currentContext;
         BufferedGraphics myBuffer;
 
+        /// <summary>
+        /// Вспомогательный метод реализующий логику перерисовки 
+        /// экземпляра класса Pole и Figure...
+        /// </summary>
         private void RePaint()
         {
             currentContext = BufferedGraphicsManager.Current;
             myBuffer = currentContext.Allocate(this.CreateGraphics(),
-               new Rectangle(new Point(0,0),new Size(450,700)));
+               new Rectangle(new Point(0,0),new Size((int)pole.Width,(int)pole.Height)));
             Bitmap BtmPole = pole.PaintPole();
             Bitmap DrawFigure = figure.DrawingCubeMatrix(pole.Side_of_square);
             myBuffer.Graphics.DrawImage(BtmPole, 0, 0);
@@ -79,6 +111,11 @@ namespace TwoClassTetris
 
         int count = 0;
 
+        /// <summary>
+        /// Метод реализующий ход фигуры и проверку на условие останова фигуры...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (pole.PositionOK(figure, figure._X, figure._Y + pole.Side_of_square))
@@ -107,16 +144,33 @@ namespace TwoClassTetris
             }
         }
 
+        /// <summary>
+        /// Реализация события на перезапуск игры...
+        /// Связь на UML диаграмме...
+        /// </summary>
+        /// <param name="dialog">Экземпляр класса DialogForm...</param>
         private void Dialog_RestartGame(object dialog)
         {
             EventArgs e = new EventArgs();
+            int heiht = (int)pole.Height;
+            int with = (int)pole.Width;
+            int size = pole.Side_of_square;
+            pole = new Pole();
+            pole.Height = heiht;
+            pole.Width = with;
+            pole.Side_of_square = size;
             this.Form1_Load(this, e);
-            timer1.Start();
             lineLabel.Text = "0";
             recordLabel.Text = Record.ToString();
-            ((DialogForm)dialog).Close();
+            ((DialogForm)dialog).Hide();
+            timer1.Start();
         }
 
+        /// <summary>
+        /// Реализация управления фигурой...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -140,6 +194,7 @@ namespace TwoClassTetris
                         RePaint();
                     }
                     break;
+                    //Down...
                 case 40:
                     if (pole.PositionOK(figure, figure._X, figure._Y+ pole.Side_of_square))
                     {
@@ -151,6 +206,7 @@ namespace TwoClassTetris
                         RePaint();
                     }
                     break;
+                    //Up...
                 case 38:
                     Thread.Sleep(100);
                     figure.Transform();
@@ -168,6 +224,11 @@ namespace TwoClassTetris
         private void statBox_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

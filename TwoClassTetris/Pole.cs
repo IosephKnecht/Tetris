@@ -51,6 +51,10 @@ namespace TwoClassTetris
             }
         }
 
+        /// <summary>
+        /// Метод по отрисовки поля...
+        /// </summary>
+        /// <returns>Bitmap с закрашенными "кубиками"...</returns>
         public Bitmap PaintPole() 
         {
             //side_of_square = 50;
@@ -90,6 +94,12 @@ namespace TwoClassTetris
                 return BtmPole;
         }
 
+        /// <summary>
+        /// Метод проверки на условие останова...
+        /// </summary>
+        /// <param name="figure">Экземпляр класса Figure...</param>
+        /// <param name="X">Проверяемая координата по оси OX...</param>
+        /// <param name="Y">Проверяемая координата по оси OY...</param>
         public void CheckArea(Figure figure, float X, float Y)
         {
             for (int i = 0; i < figure._Cube.GetLength(0); i++)
@@ -113,6 +123,13 @@ namespace TwoClassTetris
             //Console.ReadLine();
         }
 
+        /// <summary>
+        /// Метод проверки на возможность перемещения фигуры на новые координаты...
+        /// </summary>
+        /// <param name="figure">Экземпляр класса Figure...</param>
+        /// <param name="X">Проверяемая координата по оси OX...</param>
+        /// <param name="Y">Проверяемая координата по оси OY...</param>
+        /// <returns>true-если перемещение возможно;else ->false...</returns>
         public bool PositionOK(Figure figure,float X,float Y)
         {
             for (int i = 0; i < figure._Cube.GetLength(0); i++)
@@ -140,6 +157,10 @@ namespace TwoClassTetris
             return true;
         }
 
+        /// <summary>
+        /// Вспомогательный метод для удаления линии...
+        /// </summary>
+        /// <param name="LineNum">Номер линии для удаления...</param>
         private void DeleteLine(int LineNum)
         {
             int[,] cash = new int[LineNum, Area.GetLength(1)];
@@ -164,6 +185,9 @@ namespace TwoClassTetris
             PlusLine();
         }
 
+        /// <summary>
+        /// Вспомогательный метод проверяющий,если вообще заполненные линии для удаления...
+        /// </summary>
         private void SearchLine()
         {
             for (int i = 0; i <Area.GetLength(0); i++)
