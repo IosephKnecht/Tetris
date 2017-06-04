@@ -19,7 +19,7 @@ namespace TwoClassTetris
         int side_of_square;
         Bitmap BtmPole;//=new Bitmap(1000,1000);
         Brush[] ColorsPole = new Brush[] { Brushes.Aqua, Brushes.Orange, Brushes.Blue, Brushes.Red, Brushes.Green,
-            Brushes.Azure, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
+            Brushes.BlueViolet, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
 
         public event Action PlusLine;
 
@@ -68,7 +68,7 @@ namespace TwoClassTetris
                 {
                     if (Area[i, j] == 0)
                     {
-                        newBrush = Brushes.BlueViolet;
+                        newBrush = Brushes.Azure;
                     }
                     else
                     {

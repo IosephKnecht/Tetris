@@ -16,7 +16,7 @@ namespace TwoClassTetris
         int StopLine = 0;
         int[,] Cube = new int[4, 4]; //Расчетная матрица...
         Brush[] ColorsPole = new Brush[] { Brushes.Aqua, Brushes.Orange, Brushes.Blue, Brushes.Red, Brushes.Green,
-            Brushes.Azure, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
+            Brushes.BlueViolet, Brushes.Violet, Brushes.Tomato, Brushes.SteelBlue };
 
         public int _StopLine 
         {
@@ -47,7 +47,7 @@ namespace TwoClassTetris
             Random ran = new Random();
             int color = ran.Next(0, 9)+1;
             Thread.Sleep(10);
-            switch (ran.Next(1, 6) + 1)
+            switch (ran.Next(1, 7) + 1)
             {
                 case 1://Левая молния...
                     Cube[1, 2] = color;
@@ -84,6 +84,12 @@ namespace TwoClassTetris
                     Cube[1, 1] = color;
                     Cube[1, 2] = color;
                     Cube[1, 3] = color;
+                    break;
+                case 7:
+                    Cube[1, 1] = color;
+                    Cube[1, 2] = color;
+                    Cube[2, 1] = color;
+                    Cube[2, 2] = color;
                     break;
             }
         }
