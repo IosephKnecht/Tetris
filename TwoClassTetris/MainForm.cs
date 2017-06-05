@@ -67,12 +67,17 @@ namespace TwoClassTetris
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            figure.EnterCubeMatrix();
+            //figure.EnterCubeMatrix();
             //pole = new Pole();
             pole.PlusLine += Pole_PlusLine;
             statBox.Location = new Point(Convert.ToInt32(pole.Width + pole.Side_of_square), Convert.ToInt32(pole.Height / 2));
             statBox.Visible = true;
-            recordLabel.Text = Record.ToString();
+            this.Height = (int)pole.Height+80;
+            this.Width = (int)pole.Width + pole.Side_of_square + statBox.Width+30;
+            int middle = (int)(pole.Width / pole.Side_of_square) / 2;
+            NewFigure();
+            //figure._X = middle * pole.Side_of_square;
+            //recordLabel.Text = Record.ToString();
             RePaint();
         }
 
@@ -107,6 +112,10 @@ namespace TwoClassTetris
         {
             figure = new Figure();
             figure.EnterCubeMatrix();
+            int middle = (int)(pole.Width / pole.Side_of_square) / 2;
+            figure._X = middle * pole.Side_of_square;
+            //if(pole.Width % pole.Side_of_square==0) figure._X=pole.Width/pole.Side_of_square
+            //figure._X = Convert.ToInt32(pole.Width / (pole.Width % pole.Side_of_square));
         }
 
         int count = 0;
